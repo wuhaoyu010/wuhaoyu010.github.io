@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.wuhaoyu.top/2017/02/23/article-title/</loc>
+    <loc>http://yoursite.com/2017/02/23/hello-world/</loc>
     
-    <lastmod>2017-02-23T08:21:28.848Z</lastmod>
+    <lastmod>2017-02-23T13:11:55.227Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.wuhaoyu.top/2017/02/23/hello-world/</loc>
+    <loc>http://yoursite.com/about/index.html</loc>
     
-    <lastmod>2017-02-23T07:40:05.560Z</lastmod>
+    <lastmod>2017-02-23T12:18:56.799Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2017-02-23T12:16:08.287Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2017-02-23T12:10:35.643Z</lastmod>
     
   </url>
   
