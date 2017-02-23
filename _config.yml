@@ -5,14 +5,14 @@
 # Site
 title: 吾先生的Blog
 subtitle:
-description:
+description: GitHub+Hexo方式建立的博客
 author: Wuhaoyu
-language: 
-timezone:
+language: zh-Hans
+timezone: Asia/Shanghai #时区
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://wuhaoyu010.github.io
+url: http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -69,5 +69,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
   type: git
-  repo: git@github.com:wuhaoyu010/wuhaoyu010.github.io.git
+  repository: https://github.com/wuhaoyu010/wuhaoyu010.github.io.git
   branch: master
