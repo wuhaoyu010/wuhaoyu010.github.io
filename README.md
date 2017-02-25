@@ -1,2 +1,2 @@
-# wuhaoyu010.github.io
-吾先生的GitHub博客
+# 吾先生的GitHub博客
+初次建立的博客，多多指点，共同进步
