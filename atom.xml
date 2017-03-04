@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>吾先生的Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-03-04T10:53:03.091Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Wu Haoyu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NexT主题个性化定制</title>
+    <link href="http://yoursite.com/2017/02/27/hexouse/"/>
+    <id>http://yoursite.com/2017/02/27/hexouse/</id>
+    <published>2017-02-27T06:33:31.725Z</published>
+    <updated>2017-03-04T10:53:03.091Z</updated>
+    
+    <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=26830661&auto=0&height=66"></iframe></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文出现的hexo目录是你克隆的GitHub工程目录<br>next即主题目录  切记切记</p>
+<h2 id="NexT添加背景"><a href="#NexT添加背景" class="headerlink" title="NexT添加背景"></a>NexT添加背景</h2><ol>
+<li><strong>添加网页背景图片</strong></li>
+</ol>
+<p>找一个喜欢的背景图片 命名为background.jpg 放到<br>“hexo目录 -&gt; themes -&gt; next -&gt; source -&gt; images” 文件夹里<br><a id="more"></a><br>然后到<br>“hexo -&gt; themes -&gt; next -&gt; source -&gt; css -&gt; _custom”， 找到路径下的 custom.styl 文件，在文件的最上方加上一代码</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123; </div><div class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(/images/background.jpg);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>就可以了</p>
+<p>提示：<br>最好找些简单的；元素少点的图片，测试过炫酷的图片，会出现分页的现象。<br>不想让图片浮动，在上面的代码基础上添加</p>
+<pre><code>background-repeat: no-repeat;
+</code></pre><ol>
+<li><strong>添加导航页背景图片</strong></li>
+</ol>
+<p>本设置以NexT主题风格为Muse为例<br>挑选一张横向的图片  放到上文提到的目录下<br>进入“nest -&gt; source -&gt; css -&gt; _common -&gt; components -&gt; header”下<br>打开 header.styl 文件   编入以下代码在最上面<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.header</span> &#123; </div><div class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(/images/header.jpg);</div><div class="line">    <span class="attribute">background-size</span>: <span class="number">100%</span> <span class="number">100%</span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="selector-class">.header-inner</span> &#123; </div><div class="line">    <span class="attribute">position</span>: relative; </div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p> 就可以实现了  如下图的效果<br> <img src="http://olvt8uppv.bkt.clouddn.com/header图片.PNG" alt=""></p>
+<ol>
+<li><strong>添加标签背景色</strong></li>
+</ol>
+<p>完成第二步之后，若你的图片颜色过深会导致标签看不见了，怎么办呢？</p>
+<p>进入next-&gt;source-&gt;css-&gt;_common-&gt;components-&gt;header目录，打开site-nav.styl文件在sit-nav与mobile之间添加background-color，颜色任选<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.site-nav</span> &#123;</div><div class="line">   <span class="attribute">background-color</span>: rgba(<span class="number">252</span>, <span class="number">252</span>, <span class="number">252</span>, <span class="number">0.9</span>); </div><div class="line"> +mobile() &#123;</div></pre></td></tr></table></figure></p>
+<h2 id="添加-High一下-功能"><a href="#添加-High一下-功能" class="headerlink" title="添加 High一下 功能"></a>添加 High一下 功能</h2><p>本功能恕在下只能摘抄了</p>
+<p>感谢<a href="http://www.jianshu.com/p/748622c7bb20" target="_blank" rel="external">lancelot_lewis</a> </p>
+<p><a href="http://olvt8uppv.bkt.clouddn.com/high.min.js" target="_blank" rel="external">代码地址</a></p>
+<p>网上有的方法是直接插入在next -&gt; layout -&gt; _partials下的header.swig文件中；<br>但还可以把此代码提取出来当作外部js文件执行<br><strong>第一步</strong><br>next主题配置的 _config.yml 文件中（即next文件夹下的） 添加<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">menu</span>:</div><div class="line">    <span class="attribute">high</span>: <span class="attribute">javascript</span>:void(<span class="number">0</span>)</div><div class="line"><span class="attribute">menu_icons</span>:</div><div class="line">    <span class="attribute">high</span>: play</div></pre></td></tr></table></figure></p>
+<p>添加到menu下的标签，因为配置设置死了，必须有href的值，就算写成 high: 后面什么都不写你点击 high 标签都会回到主页（此主题设定 空是返回主页）。第一个 high 的javascript:void(0)是指a标签的跳转链接，其实这里的功能就是为了让它不跳转的，另外还有一个功能，可以把空链接的a标签悬浮变成手型的鼠标。第二个 high对应的play是展示的图标，NexT主题使用的是fontawesome图标，这里的play就是其对应的图标，想自己diy一下就去fontawesome上找个自己喜欢的。</p>
+<p>还要加一句<br>配置文件中找到<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Canvas-nest</span></div><div class="line"><span class="attr">canvas_nest:</span> <span class="literal">false</span></div></pre></td></tr></table></figure></p>
+<p>字段  在其后面添加（引号去掉）<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># High一下</span></div><div class="line"><span class="attr">high:</span> <span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<p><strong>第二步</strong></p>
+<p>NexT主题加载外部 js 文件在“ hexo -&gt; layout -&gt; _scripts -&gt; vendors.swg”中，模仿fancybox的方式，添加了这段代码：<br><figure class="highlight twig"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="keyword">if</span></span> theme.high %&#125;</span><span class="xml"></span></div><div class="line">  <span class="template-tag">&#123;% <span class="name"><span class="keyword">set</span></span> js_vendors.high  = 'high/high.min.js' %&#125;</span><span class="xml"></span></div><div class="line"><span class="template-tag">&#123;% <span class="name"><span class="keyword">endif</span></span> %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure></p>
+<p>这样的处理就可以在主题的配置文件中使用配置选择是否打开high一下功能，现在就还需要把high.js放到对应的文件夹中，<br>打开代码地址 复制代码到high.min.js （命名成.min以后会用到，别急嘛）<br>我这边的路径是“next -&gt; source -&gt; lib -&gt; high -&gt; high.min.js”。</p>
+<p>完全按照上述步骤，你也会实现这个炫酷又嘈杂的功能哒！</p>
+<h2 id="gulp实现代码压缩"><a href="#gulp实现代码压缩" class="headerlink" title="gulp实现代码压缩"></a>gulp实现代码压缩</h2><p>感谢 <a href="http://www.5941740.cn/2016/02/19/gulp-learning/" target="_blank" rel="external">但丁笔记</a></p>
+<p>我只是略做了点补充</p>
+<h3 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h3><p>我推荐使用最新版的gulp 4.0，为了更方便的使用gulp的顺序执行任务功能。此处知识在<a href="http://zhangruojun.com/gulpshun-xu-zhi-xing-ren-wu/" target="_blank" rel="external">这里</a>了解到的。<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装全局的 gulp 4.0</span></div><div class="line">$ npm <span class="keyword">install</span> <span class="string">"gulpjs/gulp-cli#4.0"</span> -g  </div><div class="line">$ npm <span class="keyword">install</span> <span class="string">"gulpjs/gulp#4.0"</span> -g</div><div class="line"></div><div class="line"><span class="comment"># 安装本地的 gulp 4.0</span></div><div class="line">$ npm <span class="keyword">install</span> <span class="string">"gulpjs/gulp#4.0"</span> --save-dev</div></pre></td></tr></table></figure></p>
+<p>我安装第一个的时候失败了，但不影响使用的。</p>
+<h3 id="安装gulp插件"><a href="#安装gulp插件" class="headerlink" title="安装gulp插件"></a>安装gulp插件</h3><p>在这里需要以下：</p>
+<ul>
+<li>gulp-minify-css 压缩css</li>
+<li>gulp-htmlmin 压缩html</li>
+<li>gulp-htmlclean html清理</li>
+<li>gulp-uglify 压缩js</li>
+<li>gulp-imagemin 压缩图片</li>
+<li>gulp-clean 清理文件或目录</li>
+<li>gulp-shell </li>
+</ul>
+<p>安装命令</p>
+<p><code>npm install [plugins-name] --save</code></p>
+<p>plugins-name在上面呦</p>
+<h3 id="配置gulp"><a href="#配置gulp" class="headerlink" title="配置gulp"></a>配置gulp</h3><p>安装完毕后在工程目录下创建一个js文件，命名为gulpfile.js</p>
+<p>打开  输入一下代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//加载插件</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line">    minifyCss = <span class="built_in">require</span>(<span class="string">'gulp-clean-css'</span>),</div><div class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),</div><div class="line">    uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),</div><div class="line">    htmlclean = <span class="built_in">require</span>(<span class="string">'gulp-htmlclean'</span>),</div><div class="line">    <span class="comment">//获取 gulp-imagemin 模块</span></div><div class="line">    imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//压缩css</span></div><div class="line">gulp.task(<span class="string">'minify-css'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([<span class="string">'public/**/*.css'</span>,<span class="string">'!public/**/*.min.css'</span>])</div><div class="line">        .pipe(minifyCss())</div><div class="line">        .pipe(gulp.dest(<span class="string">'./public'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//压缩js</span></div><div class="line">gulp.task(<span class="string">'minify-js'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([<span class="string">'public/**/*.js'</span>,<span class="string">'!public/**/*.min.js'</span>])</div><div class="line">        .pipe(uglify())</div><div class="line">        .pipe(gulp.dest(<span class="string">'./public'</span>));   </div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//压缩html</span></div><div class="line">gulp.task(<span class="string">'minify-html'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.html'</span>)</div><div class="line">        .pipe(htmlclean())</div><div class="line">        .pipe(htmlmin(&#123;</div><div class="line">            <span class="attr">removeComments</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">minifyJS</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">minifyCSS</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">minifyURLs</span>: <span class="literal">true</span></div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./public'</span>));   </div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//压缩图片</span></div><div class="line">gulp.task(<span class="string">'images'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//找到图片</span></div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./public/images/*.*'</span>)</div><div class="line">        <span class="comment">//压缩图片</span></div><div class="line">        .pipe(imagemin(&#123;</div><div class="line">            <span class="attr">progressive</span>: <span class="literal">false</span></div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./public/images'</span>));    </div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//执行命令时执行的任务</span></div><div class="line">gulp.task(<span class="string">'default'</span>, gulp.parallel(<span class="string">'minify-css'</span>,<span class="string">'minify-js'</span>,<span class="string">'minify-html'</span>,<span class="string">'images'</span>));</div></pre></td></tr></table></figure></p>
+<p>解释一下：</p>
+<ol>
+<li>我将 high一下 的js文件命名为high.min.js是原因</li>
+</ol>
+<p>当时我也是直接命名成high.js，运行gulp命令总是报错，不得以将其命名成压缩版的名称。gulpfile.js文件中的“!”后再加路径是为了不检测这些文件，因为已经是压缩文件了。</p>
+<ol>
+<li>安装gulp4.0的原因</li>
+</ol>
+<p>4.0版本中集成了顺序压缩的功能；其中的gulp.series(…)是顺序执行的意思，gulp.parallel(…)是同步进行的意思，他俩也可联合使用。</p>
+<p>现在可以测试一下了。</p>
+<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3><p>当你完成依次文档编辑后，运行以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">hexo clean</span></div><div class="line">hexo g</div><div class="line">gulp</div><div class="line">hexo d</div></pre></td></tr></table></figure></p>
+<p>即可上你的博客查看源文件，没有大片空白了。</p>
+<p>编程路长，我还需要走走</p>
+<p>欢迎在下方留言，我会尽量帮助您们的！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=26830661&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文出现的hexo目录是你克隆的GitHub工程目录&lt;br&gt;next即主题目录  切记切记&lt;/p&gt;
+&lt;h2 id=&quot;NexT添加背景&quot;&gt;&lt;a href=&quot;#NexT添加背景&quot; class=&quot;headerlink&quot; title=&quot;NexT添加背景&quot;&gt;&lt;/a&gt;NexT添加背景&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;添加网页背景图片&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;找一个喜欢的背景图片 命名为background.jpg 放到&lt;br&gt;“hexo目录 -&amp;gt; themes -&amp;gt; next -&amp;gt; source -&amp;gt; images” 文件夹里&lt;br&gt;
+    
+    </summary>
+    
+      <category term="NexT主题个性化" scheme="http://yoursite.com/categories/NexT%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96/"/>
+    
+    
+      <category term="NexT" scheme="http://yoursite.com/tags/NexT/"/>
+    
+      <category term="gulp" scheme="http://yoursite.com/tags/gulp/"/>
+    
+      <category term="High一下" scheme="http://yoursite.com/tags/High%E4%B8%80%E4%B8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+GitHub搭建个人博客历程</title>
+    <link href="http://yoursite.com/2017/02/23/hexoblog/"/>
+    <id>http://yoursite.com/2017/02/23/hexoblog/</id>
+    <published>2017-02-23T09:49:46.303Z</published>
+    <updated>2017-03-04T10:52:16.752Z</updated>
+    
+    <content type="html"><![CDATA[<p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=440241144&auto=0&height=66"></iframe></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
+<li><p><strong>建立博客以来参考的所有教程链接</strong><br> <a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="external">手把手教你用Hexo+Github 搭建属于自己的博客</a></p>
+</li>
+<li><p><strong>建立博客需要的环境</strong><br> <a href="https://git-for-windows.github.io/" target="_blank" rel="external">git下载</a>; 　　<a href="http://nodejs.cn/" target="_blank" rel="external">note.js下载</a>; 　　<a href="https://github.com/" target="_blank" rel="external">GitHub主页</a></p>
+<a id="more"></a></li>
+<li><strong>安装完成的成功标志</strong><br> windows系统下 按win+R  输入cmd  然后键入  出现如图所示的版本号就算成功啦<br> npm -v<br> node -v<br> git –version<br> <img src="http://olvt8uppv.bkt.clouddn.com/hexo环境检测.PNG" alt=""></li>
+</ol>
+<h2 id="Hexo安装与配置"><a href="#Hexo安装与配置" class="headerlink" title="Hexo安装与配置"></a>Hexo安装与配置</h2><p> <strong>Hexo安装</strong><br>上述环境搭建完成后，在文件夹内右键会出现Git Bash Here<br><img src="http://olvt8uppv.bkt.clouddn.com/git bash here.png" alt=""></p>
+<p>创建任意一个空文件夹 命名随意(我是在D盘建立的hexo文件夹)  在该文件夹内右键点击Git Bash Here<br><img src="http://olvt8uppv.bkt.clouddn.com/hexo文件夹.PNG" alt=""></p>
+<p>在其中输入：<br>npm install hexo-cli -g            (WARN 不用担心，不影响使用)<br><img src="http://olvt8uppv.bkt.clouddn.com/hexo安装.PNG" alt=""></p>
+<p>npm install hexo –save            (等待…)<br><img src="http://olvt8uppv.bkt.clouddn.com/save hexo.PNG" alt=""></p>
+<p>hexo -v                            (出现版本号就安装成功了)<br><img src="http://olvt8uppv.bkt.clouddn.com/hexo-v.PNG" alt=""></p>
+<p> <strong>Hexo配置</strong><br>－－初始化Hexo<br>在刚才的界面中输入以下命令：<br>    hexo init<br><img src="http://olvt8uppv.bkt.clouddn.com/hexo init.PNG" alt=""><br>再输入：<br>    npm install</p>
+<p>－－Hexo本地预览<br>接着输入：<br>    hexo g<br><img src="http://olvt8uppv.bkt.clouddn.com/hexo g.PNG" alt=""></p>
+<p>再输入：<br>    hexo s<br><img src="http://olvt8uppv.bkt.clouddn.com/hexo s.PNG" alt=""></p>
+<p>现在可以在浏览器中是输入 localhost:4000 即可看到<br><img src="http://olvt8uppv.bkt.clouddn.com/localhost.PNG" alt=""></p>
+<p>－－Hexo配置到此结束了</p>
+<h2 id="Hexo与GitHub连接"><a href="#Hexo与GitHub连接" class="headerlink" title="Hexo与GitHub连接"></a>Hexo与GitHub连接</h2><p>照着我的步骤Hexo的配置会重新做一次，麻烦了一点</p>
+<ol>
+<li><p><strong>GitHub账号设置</strong><br> [github官网]（<a href="https://github.com）" target="_blank" rel="external">https://github.com）</a></p>
+<p> 注册github账号<br> <img src="http://olvt8uppv.bkt.clouddn.com/注册github账号.PNG" alt=""></p>
+<p> 新建工程<br> <img src="http://olvt8uppv.bkt.clouddn.com/new repository.png" alt=""></p>
+<p> 工程设置<br> <img src="http://olvt8uppv.bkt.clouddn.com/create .PNG" alt=""></p>
+<p> 点击Branch  在文本框中输入hexo（我已经有了）然后点击create hexo<br> <img src="http://olvt8uppv.bkt.clouddn.com/branch.PNG" alt=""></p>
+<p> 点击setting  选择Branches  下拉选择hexo<br> <img src="http://olvt8uppv.bkt.clouddn.com/setting.PNG" alt=""></p>
+</li>
+<li><p><strong>Git ssh（git个人信息）</strong><br> 此步骤是针对第一次创建账号的用户<br> <a href="https://segmentfault.com/a/1190000002645623" target="_blank" rel="external">git-ssh配置和使用</a><br> （完成前五步就可以了）</p>
+</li>
+<li><p><strong>下载工程到本地</strong><br> 在本地创建一个空文件夹(此处假设是git)，在里面右键打开Git Bash Here  输入<br> git clone git@github.com:yourname/yourname.github.io.git<br> （例如用户名是local 就输入git clone git@github.com:local/local.github.io.git）<br> －－注意：先将.git文件夹复制到别处  如上一级git文件夹中；在我实战中 下一步的<br> “hexo init”命令会把此文件夹删除</p>
+</li>
+<li><p><strong>重复Hexo安装</strong><br> 然后进入local.github.io文件夹  右键打开Git Bash Here<br> 依次输入：<br> npm install hexo<br> hexo init<br> （此时将.git文件夹复制回来）<br> npm install<br> npm install hexo-deployer-git（此时当前分支应该还是显示为hexo，这是上一步注意的原因）</p>
+</li>
+<li><p><strong>修改配置</strong><br> 用SublimeText3等等程序打开local.github.io文件夹中的_config.yml<br> 找到deploy参数 如下配置 冒号之后填写local/local.github.io.git<br> <img src="http://olvt8uppv.bkt.clouddn.com/deploy.PNG" alt=""></p>
+</li>
+<li><p><strong>部署到GitHub</strong><br> 继续在git上输入如下命令：<br> git add .<br> git commit -m “…”<br> git push origin hexo(注意此时git上显示的应该是hexo分支)<br> hexo g -d<br> 此时在浏览器输入 local.github.io 应该就会出现Hello World界面了</p>
+</li>
+</ol>
+<h2 id="日常改动过程"><a href="#日常改动过程" class="headerlink" title="日常改动过程"></a>日常改动过程</h2><pre><code>本地修改完毕后依次执行
+git add .
+git commit -m &quot;...&quot;
+git push origin hexo
+指令将改动推送到GitHub（此时当前分支应为hexo !important）
+最后执行hexo g -d发布网站到master分支上
+</code></pre><h2 id="常见问题与心得"><a href="#常见问题与心得" class="headerlink" title="常见问题与心得"></a>常见问题与心得</h2><p> <strong>本地资料丢失或者换电脑了的恢复方法</strong><br>使用git clone git@github.com:local/local.github.io.git拷贝仓库（默认分支为hexo）</p>
+<p>移步到local.github.io文件夹内  使用git bash  输入<br>npm install hexo<br>npm install<br>npm install hexo-deployer-git(不用hexo init了)</p>
+<p><strong>主题替换方法</strong><br>以NexT为例</p>
+<p>进入local.github.io目录  右键打开Git Bash  输入：<br>git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next<br>打开本目录中的_config.xml文件<br>找到theme字段  并将其值改为 next<br>如：<br>theme: next   －－注意：冒号后面有空格，不可省略的</p>
+<p>验证主题<br>提示：切换和验证主题前最好用　　hexo clean  命令清除一下Hexo的缓存<br>很有用的<br>继续上面的Git Bash  输入：<br>hexo s<br>出现<br>INFO  Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.<br>即可在浏览器访问 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>  进行验证了</p>
+<p>更多关于NexT主题的个性化设置请访问<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a>学习使用，在此就不一一列举了。</p>
+<!--The End-->
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=440241144&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;建立博客以来参考的所有教程链接&lt;/strong&gt;&lt;br&gt; &lt;a href=&quot;http://blog.csdn.net/gdutxiaoxu/article/details/53576018&quot;&gt;手把手教你用Hexo+Github 搭建属于自己的博客&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;建立博客需要的环境&lt;/strong&gt;&lt;br&gt; &lt;a href=&quot;https://git-for-windows.github.io/&quot;&gt;git下载&lt;/a&gt;; 　　&lt;a href=&quot;http://nodejs.cn/&quot;&gt;note.js下载&lt;/a&gt;; 　　&lt;a href=&quot;https://github.com/&quot;&gt;GitHub主页&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="搭建博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+      <category term="搭建博客" scheme="http://yoursite.com/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>
